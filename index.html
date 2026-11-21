@@ -79,7 +79,7 @@
   <div class="container"><h2 class="text-center mb-4">Galerie</h2>
     <div class="row g-3">
       <div class="col-6 col-md-4"><img class="galerie-img rounded" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600"></div>
-      <div class="col-6 col-md-4"><img class="galerie-img rounded" src="https://images.unsplash.com/photo-1540189549336-e6e99c4299bd?w=600"></div>
+      <div class="col-6 col-md-4"><img class="galerie-img rounded" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"></div>
       <div class="col-6 col-md-4"><img class="galerie-img rounded" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600"></div>
       <div class="col-6 col-md-4"><img class="galerie-img rounded" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600"></div>
       <div class="col-6 col-md-4"><img class="galerie-img rounded" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600"></div>
@@ -159,7 +159,7 @@
 <script>
 const plats = [
   {nom:"Thieboudienne", prix:"5000 FCFA", cat:"Plat principal", img:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600", desc:"Le plat national du Sénégal, riz rouge, légumes et poisson frais."},
-  {nom:"Yassa Poulet", prix:"4500 FCFA", cat:"Plat principal", img:"https://images.unsplash.com/photo-1540189549336-e6e99c4299bd?w=600", desc:"Poulet mariné au citron et oignons, servi avec riz blanc."},
+  {nom:"yassa Poulet" , prix:"4500 FCFA", cat:"Plat principal", img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=800&q=80",desc:" Le plat est fait à base du riz et du poulet"},
   {nom:"Grillade Mixte", prix:"7000 FCFA", cat:"Spécial", img:"https://images.unsplash.com/photo-1544025162-d76694265947?w=600", desc:"Brochettes d'agneau, poulet et capitaine grillé au feu de bois."},
   {nom:"Mafé", prix:"4000 FCFA", cat:"Plat principal", img:"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600", desc:"Sauce arachide onctueuse, viande de boeuf et riz."},
   {nom:"Jus de Bissap", prix:"1000 FCFA", cat:"Boisson", img:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600", desc:"Jus d'hibiscus frais, sucré et rafraîchissant."},
@@ -172,9 +172,9 @@ plats.forEach((p,i)=>{
   selectCmd.innerHTML += `<option>${p.nom} - ${p.prix}</option>`;
 });
 function ouvrirPlat(i){ const p=plats[i]; document.getElementById('modalTitre').innerText=p.nom; document.getElementById('modalImg').src=p.img; document.getElementById('modalDesc').innerText=p.desc; document.getElementById('modalPrix').innerText=p.prix; new bootstrap.Modal(document.getElementById('modalPlat')).show(); }
-document.getElementById('form-resa').addEventListener('submit',e=>{e.preventDefault(); document.getElementById('msg-resa').innerText="✅ Merci ! Votre réservation est confirmée. On vous appelle pour confirmer."; e.target.reset();});
-document.getElementById('form-commande').addEventListener('submit',e=>{e.preventDefault(); document.getElementById('msg-commande').innerText="✅ Commande reçue ! Livraison en 30-45 min."; e.target.reset();});
-document.getElementById('form-contact').addEventListener('submit',e=>{e.preventDefault(); document.getElementById('msg-contact').innerText="✅ Message envoyé, on vous répond très vite."; e.target.reset();});
+document.getElementById('form-resa').addEventListener('submit',e=>{e.preventDefault(); document.getElementById('msg-resa').innerText=" Merci ! Votre réservation est confirmée. On vous appelle pour confirmer."; e.target.reset();});
+document.getElementById('form-commande').addEventListener('submit',e=>{e.preventDefault(); document.getElementById('msg-commande').innerText=" Commande reçue ! Livraison en 30-45 min."; e.target.reset();});
+document.getElementById('form-contact').addEventListener('submit',e=>{e.preventDefault(); document.getElementById('msg-contact').innerText=" Message envoyé, on vous répond très vite."; e.target.reset();});
 </script>
 </body>
 </html>
