@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saveurs du Terroir - Restaurant à Dakar</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+  .header-resto{height:98vh; background: linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600') center/cover; display:flex; align-items:center; color:white;}
+  @media(max-width:768px){ .header-resto{height:100vh;} }
+  .plat-img{height:220px; object-fit:cover;}
+  .galerie-img{height:200px; object-fit:cover; width:100%;}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">🍽️ SAVEURS DU TERROIR</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
+        <li class="nav-item"><a class="nav-link" href="#menu-resto">Notre Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="#offres">Offres Spéciales</a></li>
+        <li class="nav-item"><a class="nav-link" href="#reservation">Réservation</a></li>
+        <li class="nav-item"><a class="nav-link" href="#galerie">Galerie</a></li>
+        <li class="nav-item"><a class="nav-link" href="#temoignages">Témoignages</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER 98vh -->
+<header id="accueil" class="header-resto text-center">
+  <div class="container">
+    <h1 class="display-3 fw-bold">Saveurs du Terroir</h1>
+    <p class="lead">Le vrai goût du Sénégal, au cœur de Dakar.</p>
+    <a href="#reservation" class="btn btn-warning btn-lg me-2">Réserver une table</a>
+    <a href="#menu-resto" class="btn btn-outline-light btn-lg">Voir le Menu</a>
+    <br><br>
+    <a href="tel:+221771234567" class="btn btn-success"><i class="bi bi-telephone"></i> Appeler</a>
+  </div>
+</header>
+
+<!-- OFFRES -->
+<section id="offres" class="py-5 bg-warning bg-opacity-25 text-center">
+  <div class="container"><h2>🔥 Offre Spéciale</h2><p class="lead">Ce week-end : Thieboudienne + Jus de Bissap offert = <b>5000 FCFA</b> au lieu de 7000 FCFA</p><a href="#commande" class="btn btn-dark">Commander maintenant</a></div>
+</section>
+
+<!-- MENU -->
+<section id="menu-resto" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Notre Menu</h2>
+    <div class="row g-4" id="liste-plats"></div>
+  </div>
+</section>
+
+<!-- COMMANDE -->
+<section id="commande" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center">Commander en ligne</h2>
+    <form id="form-commande" class="row g-3 mx-auto" style="max-width:600px">
+      <div class="col-md-6"><label>Prénom & Nom *</label><input required class="form-control" placeholder="Ex: Aïssatou Diallo"></div>
+      <div class="col-md-6"><label>Téléphone *</label><input required type="tel" class="form-control" placeholder="77 123 45 67"></div>
+      <div class="col-12"><label>Plat à commander *</label><select required class="form-select" id="plat-commande"></select></div>
+      <div class="col-12"><label>Adresse de livraison</label><input class="form-control" placeholder="Quartier, Dakar"></div>
+      <button class="btn btn-primary">Valider ma commande</button>
+    </form>
+    <p id="msg-commande" class="text-center text-success fw-bold mt-3"></p>
+  </div>
+</section>
+
+<!-- GALERIE : 3 par ligne desktop, 2 sur mobile -->
+<section id="galerie" class="py-5">
+  <div class="container"><h2 class="text-center mb-4">Galerie</h2>
+    <div class="row g-3">
+      <div class="col-6 col-md-4"><img class="galerie-img rounded" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600"></div>
+      <div class="col-6 col-md-4"><img class="galerie-img rounded" src="https://images.unsplash.com/photo-1540189549336-e6e99c4299bd?w=600"></div>
+      <div class="col-6 col-md-4"><img class="galerie-img rounded" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600"></div>
+      <div class="col-6 col-md-4"><img class="galerie-img rounded" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600"></div>
+      <div class="col-6 col-md-4"><img class="galerie-img rounded" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600"></div>
+      <div class="col-6 col-md-4"><img class="galerie-img rounded" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600"></div>
+    </div>
+  </div>
+</section>
+
+<!-- RÉSERVATION -->
+<section id="reservation" class="py-5 bg-dark text-white">
+  <div class="container">
+    <h2 class="text-center">Réserver une table</h2>
+    <form id="form-resa" class="row g-3 mx-auto" style="max-width:700px">
+      <div class="col-md-6"><label>Nom & Prénom *</label><input required class="form-control"></div>
+      <div class="col-md-6"><label>Téléphone *</label><input required type="tel" class="form-control"></div>
+      <div class="col-md-6"><label>Email *</label><input required type="email" class="form-control"></div>
+      <div class="col-md-6"><label>Date et Heure *</label><input required type="datetime-local" class="form-control"></div>
+      <div class="col-md-6"><label>Nombre de personnes *</label><select required class="form-select"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></div>
+      <div class="col-md-6"><label>Demandes spéciales</label><input class="form-control" placeholder="Anniversaire, table dehors..."></div>
+      <div class="col-12"><button class="btn btn-warning w-100">Confirmer la réservation</button></div>
+    </form>
+    <p id="msg-resa" class="text-center text-warning fw-bold mt-3"></p>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES : Carousel 3 -->
+<section id="temoignages" class="py-5">
+  <div class="container"><h2 class="text-center mb-4">Ce que disent nos clients</h2>
+    <div id="carouselTemoignage" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner text-center">
+        <div class="carousel-item active"><img src="https://i.pravatar.cc/100?img=32" class="rounded-circle"><h5>Aïssatou Diallo</h5><p>"Le meilleur thieboudienne de Dakar, service rapide et accueil chaleureux !"</p></div>
+        <div class="carousel-item"><img src="https://i.pravatar.cc/100?img=12" class="rounded-circle"><h5>Moussa Ndiaye</h5><p>"J'ai réservé en 2 minutes. La grillade est exceptionnelle."</p></div>
+        <div class="carousel-item"><img src="https://i.pravatar.cc/100?img=45" class="rounded-circle"><h5>Fatou Sarr</h5><p>"Endroit parfait pour la famille. Le jus de bissap est incroyable."</p></div>
+      </div>
+      <button class="carousel-control-prev" data-bs-target="#carouselTemoignage" data-bs-slide="prev"><span class="carousel-control-prev-icon bg-dark rounded"></span></button>
+      <button class="carousel-control-next" data-bs-target="#carouselTemoignage" data-bs-slide="next"><span class="carousel-control-next-icon bg-dark rounded"></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-5 bg-light">
+  <div class="container"><h2 class="text-center">Contact</h2>
+    <div class="row">
+      <div class="col-md-5">
+        <p><b>Adresse :</b> Almadies, Dakar, Sénégal</p>
+        <p><b>Tél :</b> <a href="tel:+221761495052">+221 77 123 45 67</a></p>
+        <p><b>Email :</b> <a href="mailto:contact@saveursduterroir.sn">contact@saveursduterroir.sn</a></p>
+        
+      </div>
+      <div class="col-md-7">
+        <form id="form-contact" class="row g-3">
+          <div class="col-md-6"><input required class="form-control" placeholder="Prénom & Nom"></div>
+          <div class="col-md-6"><input required class="form-control" placeholder="Téléphone"></div>
+          <div class="col-md-6"><input required type="email" class="form-control" placeholder="Email"></div>
+          <div class="col-md-6"><input class="form-control" placeholder="Objet"></div>
+          <div class="col-12"><textarea required class="form-control" placeholder="Votre message"></textarea></div>
+          <button class="btn btn-primary">Envoyer</button>
+        </form>
+        <p id="msg-contact" class="text-success fw-bold"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white text-center py-4">
+  <p>Suivez-nous : <a href="https://facebook.com" class="text-white">Facebook</a> | <a href="https://instagram.com" class="text-white">Instagram</a> | <a href="https://tiktok.com" class="text-white">TikTok</a></p>
+  <p><a href="#" class="text-white">Mentions légales</a> | <a href="#" class="text-white">Politique de confidentialité</a></p>
+  <p>© 2026 Saveurs du Terroir - Tous droits réservés</p>
+</footer>
+
+<!-- POPUP PLAT -->
+<div class="modal fade" id="modalPlat"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 id="modalTitre"></h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img id="modalImg" class="w-100 rounded"><p id="modalDesc" class="mt-3"></p><h4 id="modalPrix" class="text-success"></h4></div></div></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const plats = [
+  {nom:"Thieboudienne", prix:"5000 FCFA", cat:"Plat principal", img:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600", desc:"Le plat national du Sénégal, riz rouge, légumes et poisson frais."},
+  {nom:"Yassa Poulet", prix:"4500 FCFA", cat:"Plat principal", img:"https://images.unsplash.com/photo-1540189549336-e6e99c4299bd?w=600", desc:"Poulet mariné au citron et oignons, servi avec riz blanc."},
+  {nom:"Grillade Mixte", prix:"7000 FCFA", cat:"Spécial", img:"https://images.unsplash.com/photo-1544025162-d76694265947?w=600", desc:"Brochettes d'agneau, poulet et capitaine grillé au feu de bois."},
+  {nom:"Mafé", prix:"4000 FCFA", cat:"Plat principal", img:"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600", desc:"Sauce arachide onctueuse, viande de boeuf et riz."},
+  {nom:"Jus de Bissap", prix:"1000 FCFA", cat:"Boisson", img:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600", desc:"Jus d'hibiscus frais, sucré et rafraîchissant."},
+  {nom:"Thiarkry", prix:"2000 FCFA", cat:"Dessert", img:"https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600", desc:"Dessert traditionnel au couscous de mil et lait caillé sucré."},
+];
+const liste = document.getElementById('liste-plats');
+const selectCmd = document.getElementById('plat-commande');
+plats.forEach((p,i)=>{
+  liste.innerHTML += `<div class="col-md-4"><div class="card h-100"><img src="${p.img}" class="card-img-top plat-img"><div class="card-body"><h5>${p.nom}</h5><span class="badge bg-secondary">${p.cat}</span><p>${p.desc}</p><b>${p.prix}</b><br><button class="btn btn-outline-primary mt-2" onclick="ouvrirPlat(${i})">Voir détails</button></div></div></div>`;
+  selectCmd.innerHTML += `<option>${p.nom} - ${p.prix}</option>`;
+});
+function ouvrirPlat(i){ const p=plats[i]; document.getElementById('modalTitre').innerText=p.nom; document.getElementById('modalImg').src=p.img; document.getElementById('modalDesc').innerText=p.desc; document.getElementById('modalPrix').innerText=p.prix; new bootstrap.Modal(document.getElementById('modalPlat')).show(); }
+document.getElementById('form-resa').addEventListener('submit',e=>{e.preventDefault(); document.getElementById('msg-resa').innerText="✅ Merci ! Votre réservation est confirmée. On vous appelle pour confirmer."; e.target.reset();});
+document.getElementById('form-commande').addEventListener('submit',e=>{e.preventDefault(); document.getElementById('msg-commande').innerText="✅ Commande reçue ! Livraison en 30-45 min."; e.target.reset();});
+document.getElementById('form-contact').addEventListener('submit',e=>{e.preventDefault(); document.getElementById('msg-contact').innerText="✅ Message envoyé, on vous répond très vite."; e.target.reset();});
+</script>
+</body>
+</html>
