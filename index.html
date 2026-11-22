@@ -94,12 +94,12 @@
     <h2 class="text-center">Réserver une table</h2>
        <form id="form-resa" name="reservation" method="POST" data-netlify="true" class="row g-3 mx-auto" style="max-width:700px">
       <input type="hidden" name="form-name" value="reservation">
-      <div class="col-md-6"><label>Nom & Prénom *</label><input required class="form-control"></div>
-      <div class="col-md-6"><label>Téléphone *</label><input required type="tel" class="form-control"></div>
-      <div class="col-md-6"><label>Email *</label><input required type="email" class="form-control"></div>
-      <div class="col-md-6"><label>Date et Heure *</label><input required type="datetime-local" class="form-control"></div>
-      <div class="col-md-6"><label>Nombre de personnes *</label><select required class="form-select"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></div>
-      <div class="col-md-6"><label>Demandes spéciales</label><input class="form-control" placeholder="Anniversaire, table dehors..."></div>
+      <div class="col-md-6"><label>Nom & Prénom *</label><input required name="nom" class="form-control"></div>
+      <div class="col-md-6"><label>Téléphone *</label><input required name="telephone" type="tel" class="form-control"></div>
+      <div class="col-md-6"><label>Email *</label><input required name="email" type="email" class="form-control"></div>
+      <div class="col-md-6"><label>Date et Heure *</label><input required name="date" type="datetime-local" class="form-control"></div>
+      <div class="col-md-6"><label>Nombre de personnes *</label><select required name="personnes" class="form-select"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></div>
+      <div class="col-md-6"><label>Demandes spéciales</label><input name="demandes" class="form-control" placeholder="Anniversaire, table dehors..."></div>
       <div class="col-12"><button class="btn btn-warning w-100">Confirmer la réservation</button></div>
     </form>
     <p id="msg-resa" class="text-center text-warning fw-bold mt-3"></p>
