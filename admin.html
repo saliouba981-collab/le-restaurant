@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - Saveurs du Terroir</title>
+<style>
+body{font-family:Arial;background:#fff8ec;margin:0;padding:20px}
+.box{max-width:600px;margin:40px auto;background:white;padding:25px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1)}
+h1{color:#b45309;text-align:center}
+input,button{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ddd;font-size:16px;box-sizing:border-box}
+button{background:#b45309;color:white;border:none;cursor:pointer;font-weight:bold}
+.carte{background:#fff7e6;padding:15px;border-radius:10px;margin:10px 0}
+.commande{background:white;border-left:4px solid #b45309;padding:12px;margin:10px 0;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.05)}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="box" id="loginBox">
+<h1>🔒 Admin<br>Saveurs du Terroir</h1>
+<p style="text-align:center">Propriétaire uniquement</p>
+<input type="password" id="mdp" placeholder="Mot de passe">
+<button onclick="seConnecter()">Se connecter</button>
+<p id="erreur" style="color:red;text-align:center"></p>
+<p style="text-align:center;font-size:13px;color:#888">Mot de passe par défaut : saveurs2026<br>Tu pourras le changer dans le code</p>
+</div>
+
+<div class="box hidden" id="adminBox">
+<h1>👩‍🍳 Tableau de bord</h1>
+<div class="carte"><b>👀 Visites aujourd'hui :</b> <span id="visites">0</span></div>
+<div class="carte"><b>📦 Total commandes :</b> <span id="totalCmd">0</span></div>
+<div class="carte"><b>💰 Total estimé :</b> <span id="totalArgent">0 FCFA</span></div>
+<h2>📋 Dernières commandes :</h2>
+<div id="listeCommandes"><p>Aucune commande pour le moment.</p></div>
+<button onclick="effacer()">Effacer toutes les commandes</button>
+<button onclick="location.reload()" style="background:#666">Déconnexion</button>
+</div>
+
+<script>
+function seConnecter(){
+  if(document.getElementById('mdp').value === "saveurs2026"){
+    document.getElementById('loginBox').classList.add('hidden');
+    document.getElementById('adminBox').classList.remove('hidden');
+    afficher();
+  } else {
+    document.getElementById('erreur').innerText = "Mot de passe faux !";
+  }
+}
+function afficher(){
+  let commandes = JSON.parse(localStorage.getItem('commandes') || '[]');
+  let visites = parseInt(localStorage.getItem('visites') || '0');
+  document.getElementById('visites').innerText = visites;
+  document.getElementById('totalCmd').innerText = commandes.length;
+  let total = 0;
+  let html = "";
+  commandes.slice().reverse().forEach(c => {
+    total += parseInt(c.prix || 0);
+    html += `<div class="commande"><b>${c.nom}</b> - ${c.telephone}<br>🍽️ ${c.plat} - ${c.prix} FCFA<br><small>${c.date}</small></div>`;
+  });
+  document.getElementById('totalArgent').innerText = total + " FCFA";
+  if(html) document.getElementById('listeCommandes').innerHTML = html;
+}
+function effacer(){
+  if(confirm("Effacer tout ?")){ localStorage.removeItem('commandes'); location.reload(); }
+}
+</script>
+</body>
+</html>
